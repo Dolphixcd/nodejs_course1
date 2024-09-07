@@ -1,13 +1,10 @@
-const http = require('http');
+const express = require('express');
 
-const server = http.createServer((req, res) => {
-      console.log(req);
-      res.setHeader('Content-Type', 'text/html');
-        res.write('<html>');
-        res.write('<head><title>My First Page</title></head>');
-        res.write('<body><h1>ICH LIEBE DIC2H IMMER NOCH MEHR!</h1></body>');
-        res.write('</html>');
-        res.end();
-    });
+const app = express();
 
-server.listen(3000);
+app.use((req, res, next) => {
+  console.log('In the mid3dle2ware!');
+   res.send('<h1>Hello fr2om Express!</h1>');
+});
+
+app.listen(3000);
